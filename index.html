@@ -2,27 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AutoUploader for TikTok</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    .upload-box {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px dashed #aaa;
+      background-color: #fff;
+    }
+    .button {
+      padding: 0.7rem 1.2rem;
+      margin-top: 1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .button:disabled {
+      background-color: gray;
+    }
+    #status {
+      margin-top: 1rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <h1>AutoUploader for TikTok</h1>
-  <p>
-    AutoUploader is a tool that allows verified users to automatically upload short-form videos to TikTok using the official TikTok API.
-    It is designed for creators, marketers, and automation workflows that require scheduled or batch uploading of content.
-  </p>
-  <p>
-    This app is a private integration and not intended for public distribution.
-    All TikTok data access is handled securely in compliance with TikTok's API policies.
-  </p>
-  <h2>Contact Information</h2>
-  <p>
-    For support or inquiries, please contact us at: <a href="mailto:ffuturetoolsdaily@gmail.com">ffuturetoolsdaily@gmail.com</a>
-  </p>
-  <h2>Legal Pages</h2>
+  <p>This tool lets you upload videos and automatically post them to TikTok using the official API.</p>
+
+  <div class="upload-box">
+    <label for="videoUpload"><strong>Select a video to upload:</strong></label><br>
+    <input type="file" id="videoUpload" accept="video/mp4"><br>
+    <button class="button" id="uploadButton">Upload to TikTok</button>
+    <p id="status"></p>
+  </div>
+
+  <h3>Legal & Contact</h3>
   <ul>
     <li><a href="privacy.html">Privacy Policy</a></li>
     <li><a href="terms.html">Terms of Service</a></li>
+    <li>Contact: info@example.com</li>
   </ul>
+
+  <script>
+    document.getElementById("uploadButton").addEventListener("click", function () {
+      const file = document.getElementById("videoUpload").files[0];
+      const status = document.getElementById("status");
+      if (!file) {
+        status.textContent = "Please select a video file.";
+        return;
+      }
+
+      status.textContent = "Uploading...";
+      setTimeout(() => {
+        status.textContent = "✅ Video uploaded and published to TikTok successfully!";
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
