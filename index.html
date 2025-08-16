@@ -4,48 +4,19 @@
   <meta charset="UTF-8" />
   <title>AutoUploader for TikTok</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 2rem;
-    }
-    h1 {
-      color: #222;
-    }
-    .box {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-    .button {
-      padding: 0.6rem 1.2rem;
-      font-size: 16px;
-      background-color: #101010;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    input[type="file"] {
-      margin-top: 1rem;
-    }
-    #status {
-      margin-top: 1rem;
-      color: green;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 2rem; }
+    .box { max-width: 600px; margin: auto; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h1 { color: #222; }
+    .button { padding: 10px 20px; background: #101010; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    input[type="file"] { margin-top: 1rem; }
+    #status { margin-top: 1rem; color: green; }
+    ul { padding-left: 1.2rem; }
   </style>
 </head>
 <body>
   <div class="box">
     <h1>AutoUploader for TikTok</h1>
-    <p>This tool allows users to log in with TikTok and automatically upload short-form videos such as daily horoscopes.</p>
+    <p>This tool allows users to log in with TikTok and automatically upload daily horoscope videos to their TikTok accounts.</p>
 
     <h2>🔐 Step 1: Login with TikTok</h2>
     <button class="button" onclick="redirectToTikTok()">Login with TikTok</button>
@@ -66,14 +37,13 @@
 
   <script>
     function redirectToTikTok() {
-      const client_key = "aw9uxdxbw7c68lmd";  // ← BURAYA TikTok client_key'ini yaz
+      const client_key = "aw9uxdxbw7c68lmd";  // TikTok Developer panelinden alınan
       const redirect_uri = "https://futuretoolsaiii.github.io/auto-uploader-pages/callback.html";
       const scope = "user.info.basic,video.upload";
       const response_type = "code";
       const state = "state123";
 
       const authUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${client_key}&scope=${scope}&response_type=${response_type}&redirect_uri=${encodeURIComponent(redirect_uri)}&state=${state}`;
-      
       window.location.href = authUrl;
     }
 
